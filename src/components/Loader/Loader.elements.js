@@ -19,7 +19,7 @@ export const Spinner = styled.div`
 
   & div {
     animation: ${spinnerAnimation} 1.2s linear infinite;
-    background: #fff;
+    background: #f1f1f1;
     border-radius: 50%;
     height: 6px;
     position: absolute;
