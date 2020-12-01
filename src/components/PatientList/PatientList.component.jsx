@@ -61,7 +61,7 @@ export default function PatientList({
             <h2>Patients Created in last 72 hours</h2>
           </Heading>
 
-          <ListCount>Patient Count:</ListCount>
+          <ListCount>Patient Count: {Object.keys(patients).length}</ListCount>
 
           <span>Please select from the list below:</span>
         </Header>
@@ -108,7 +108,7 @@ export default function PatientList({
           <h2>Patients Created in last 72 hours</h2>
         </Heading>
 
-        <ListCount>Patient Count:</ListCount>
+        <ListCount>Patient Count: {Object.keys(patients).length}</ListCount>
 
         <span>Please select from the list below:</span>
       </Header>
