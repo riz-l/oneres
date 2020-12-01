@@ -6,9 +6,10 @@ import styled from "styled-components";
 import { Header, PatientList, PatientSearch } from "./components";
 
 export default function App() {
-  // State = patients
+  // State = isPatientListOpen, patients, isSearchMenuOpen, selectedPatient
   const [isPatientListOpen, setIsPatientListOpen] = useState(true);
   const [patients, setPatients] = useState([]);
+  const [isSearchMenuOpen, setIsSearchMenuOpen] = useState(false);
   const [selectedPatient, setSelectedPatient] = useState(null);
 
   return (
@@ -35,13 +36,13 @@ export default function App() {
           />
         </PatientListWrapper>
 
-        <PatientSearch
+        {/* <PatientSearch
           isSearchMenuOpen={isSearchMenuOpen}
           setIsSearchMenuOpen={setIsSearchMenuOpen}
           patients={patients}
           selectedPatient={selectedPatient}
           setSelectedPatient={setSelectedPatient}
-        />
+        /> */}
 
         <ReportWrapper>
           <h1>Test</h1>

@@ -31,7 +31,7 @@ export default function PatientSearch(
 
   // form: resetSearch
   function resetSearch() {
-    setSearchMenuIsOpen((isSearchMenuOpen) => !isSearchMenuOpen);
+    setIsSearchMenuOpen((isSearchMenuOpen) => !isSearchMenuOpen);
     setSearchIncidentNo("");
     setSearchCallSign("");
     setSearchEprUser("");
