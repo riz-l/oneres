@@ -1,6 +1,6 @@
 // Import: Dependencies
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 // Import: Pages, Components
 import { Header, PatientList, PatientSearch } from "./components";

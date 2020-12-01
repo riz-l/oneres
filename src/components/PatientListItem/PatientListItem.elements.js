@@ -1,5 +1,5 @@
 // Import: Dependencies
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 // Element: IconContainer
 export const IconContainer = styled.div`
