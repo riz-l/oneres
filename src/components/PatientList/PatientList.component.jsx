@@ -77,12 +77,14 @@ export default function PatientList({
   // Maps patientData through PatientListItem
   const patientListRender = patients.map(
     ({ Master_ePR_ID, ...otherPatientListProps }) => (
-      <React.Fragment
+      <div
         key={Master_ePR_ID}
         onClick={() => setSelectedPatient(Master_ePR_ID)}
-        style={Master_ePR_ID === selectedPatient && { backgrouond: "#2a2a2e" }}
+        style={
+          Master_ePR_ID === selectedPatient ? { backgrouond: "#2a2a2e" } : null
+        }
       >
-        <React.Fragment
+        <div
           onClick={
             window.innerWidth <= 768
               ? () =>
@@ -93,8 +95,8 @@ export default function PatientList({
           }
         >
           <PatientListItem {...otherPatientListProps} />
-        </React.Fragment>
-      </React.Fragment>
+        </div>
+      </div>
     )
   );
 
