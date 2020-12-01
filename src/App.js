@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 // Import: Pages, Components
-import { Header, PatientList } from "./components";
+import { Header, PatientList, PatientSearch } from "./components";
 
 export default function App() {
   // State = patients
@@ -34,6 +34,14 @@ export default function App() {
             setSelectedPatient={setSelectedPatient}
           />
         </PatientListWrapper>
+
+        <PatientSearch
+          isSearchMenuOpen={isSearchMenuOpen}
+          setIsSearchMenuOpen={setIsSearchMenuOpen}
+          patients={patients}
+          selectedPatient={selectedPatient}
+          setSelectedPatient={setSelectedPatient}
+        />
 
         <ReportWrapper>
           <h1>Test</h1>
