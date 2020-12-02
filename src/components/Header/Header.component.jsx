@@ -27,7 +27,7 @@ import {
 } from "./Header.elements";
 
 // Component: Header
-export default function Header({ setIsPatientListOpen }) {
+export default function Header({ setIsPatientListOpen, setIsSearchMenuOpen }) {
   return (
     <Container>
       <Primary>
@@ -48,9 +48,9 @@ export default function Header({ setIsPatientListOpen }) {
         <Wrapper>
           <ToggleWrapper>
             <Toggle
-              onClick={() => {
-                setIsPatientListOpen((isPatientListOpen) => !isPatientListOpen);
-              }}
+              onClick={() =>
+                setIsPatientListOpen((isPatientListOpen) => !isPatientListOpen)
+              }
             >
               <ToggleIcon />
               <span>Patient List</span>
@@ -62,7 +62,11 @@ export default function Header({ setIsPatientListOpen }) {
               <PrintIcon />
             </Button>
 
-            <Button>
+            <Button
+              onClick={() =>
+                setIsSearchMenuOpen((isSearchMenuOpen) => !isSearchMenuOpen)
+              }
+            >
               <SearchIcon />
             </Button>
 

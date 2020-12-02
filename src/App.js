@@ -14,7 +14,10 @@ export default function App() {
 
   return (
     <Container>
-      <Header setIsPatientListOpen={setIsPatientListOpen} />
+      <Header
+        setIsPatientListOpen={setIsPatientListOpen}
+        setIsSearchMenuOpen={setIsSearchMenuOpen}
+      />
 
       <Main
         style={
@@ -36,13 +39,13 @@ export default function App() {
           />
         </PatientListWrapper>
 
-        {/* <PatientSearch
+        <PatientSearch
           isSearchMenuOpen={isSearchMenuOpen}
           setIsSearchMenuOpen={setIsSearchMenuOpen}
           patients={patients}
           selectedPatient={selectedPatient}
           setSelectedPatient={setSelectedPatient}
-        /> */}
+        />
 
         <ReportWrapper>
           <h1>Test</h1>
