@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import styled from "styled-components/macro";
 
 // Import: Pages, Components
+import { Report } from "./pages";
 import { Header, PatientList, PatientSearch } from "./components";
 
 export default function App() {
-  // State = isPatientListOpen, patients, isSearchMenuOpen, selectedPatient
+  // State: isPatientListOpen, patients, isSearchMenuOpen, selectedPatient
   const [isPatientListOpen, setIsPatientListOpen] = useState(true);
   const [patients, setPatients] = useState([]);
   const [isSearchMenuOpen, setIsSearchMenuOpen] = useState(false);
@@ -47,8 +48,19 @@ export default function App() {
           setSelectedPatient={setSelectedPatient}
         />
 
-        <ReportWrapper>
-          <h1>Test</h1>
+        <ReportWrapper
+          style={
+            !isPatientListOpen
+              ? {
+                  gridTemplateColumns: "0 1fr",
+                }
+              : null
+          }
+        >
+          <Report
+            selectedPatient={selectedPatient}
+            isPatientListOpen={isPatientListOpen}
+          />
         </ReportWrapper>
       </Main>
     </Container>

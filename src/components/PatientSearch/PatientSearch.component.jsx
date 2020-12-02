@@ -32,7 +32,7 @@ export default function PatientSearch({
   selectedPatient,
   setSelectedPatient,
 }) {
-  // State = search
+  // State: search
   const [searchIncidentNo, setSearchIncidentNo] = useState(""); // Incident No., PD_Incident_Number
   const [searchCallSign, setSearchCallSign] = useState(""); // Call Sign, ePR_CallSign
   const [searchEprUser, setSearchEprUser] = useState(""); // ePR User, ePR_User
@@ -41,7 +41,7 @@ export default function PatientSearch({
   const [searchNhsNo, setSearchNhsNo] = useState(""); // NHS No., PD_NHS_No
   const [searchReceivingLocation, setSearchReceivingLocation] = useState(""); // Receiving Location, PD_Receiving_Location
 
-  // State = isAnonymousHidden
+  // State: isAnonymousHidden
   const [isAnonymousHidden, setIsAnonymousHidden] = useState(true);
 
   // form: handleSubmit

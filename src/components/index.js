@@ -12,3 +12,9 @@ export { default as PatientListItem } from "./PatientListItem/PatientListItem.co
 
 // Export: PatientSearch
 export { default as PatientSearch } from "./PatientSearch/PatientSearch.component";
+
+// Export: ReportHeader
+export { default as ReportHeader } from "./ReportHeader/ReportHeader.component";
+
+// Export: SelectPatientWarning
+export { default as SelectPatientWarning } from "./SelectPatientWarning/SelectPatientWarning.component";

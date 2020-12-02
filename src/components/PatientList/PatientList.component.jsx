@@ -26,10 +26,10 @@ export default function PatientList({
   selectedPatient,
   setSelectedPatient,
 }) {
-  // State = loading
+  // State: loading
   const [isLoading, setIsLoading] = useState(true);
 
-  // Run getPatientData on load
+  // Effect: Runs getPatientData on load
   useEffect(() => {
     // Fetch Patient data
     function getPatientData() {
