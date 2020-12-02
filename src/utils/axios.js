@@ -85,7 +85,7 @@ export const notes = axios.create({
 });
 
 // GET: /Pathfinders/ePRID/
-export const Pathfinders = axios.create({
+export const pathfinders = axios.create({
   baseURL: `${apiUrl}/Pathfinders/ePRID/`,
 });
 
