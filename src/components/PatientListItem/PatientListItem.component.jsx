@@ -86,31 +86,33 @@ export default function PatientListItem({
               : "Reported Condition"}
           </DetailItem>
         </Details>
+
+        <StatusWrapper>
+          <StatusItem>
+            {PD_Incident_Number
+              ? "..." +
+                PD_Incident_Number.substring(PD_Incident_Number.length - n)
+              : "Null"}
+          </StatusItem>
+
+          <StatusItem>
+            {ePR_Date ? (
+              secondsToHoursMinutesSeconds(secondsSinceAdmission)
+            ) : (
+              <span>ePR Date</span>
+            )}
+          </StatusItem>
+
+          <StatusItem>
+            {ePR_CallSign ? ePR_CallSign : "ePR CallSign"}
+          </StatusItem>
+
+          <StatusItem>
+            <p>Status:</p>
+            {complete ? <span>Ready to Print</span> : <span>In Progress</span>}
+          </StatusItem>
+        </StatusWrapper>
       </ContentWrapper>
-
-      <StatusWrapper>
-        <StatusItem>
-          {PD_Incident_Number
-            ? "..." +
-              PD_Incident_Number.substring(PD_Incident_Number.length - n)
-            : "Null"}
-        </StatusItem>
-
-        <StatusItem>
-          {ePR_Date ? (
-            secondsToHoursMinutesSeconds(secondsSinceAdmission)
-          ) : (
-            <span>ePR Date</span>
-          )}
-        </StatusItem>
-
-        <StatusItem>{ePR_CallSign ? ePR_CallSign : "ePR CallSign"}</StatusItem>
-
-        <StatusItem>
-          <p>Status:</p>
-          {complete ? <span>Ready to Print</span> : <span>In Progress</span>}
-        </StatusItem>
-      </StatusWrapper>
     </Container>
   );
 }
