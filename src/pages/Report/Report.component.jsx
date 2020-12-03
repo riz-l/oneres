@@ -99,11 +99,10 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setCadDetailsData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error("Incident Information (cadDetails) error: ", error);
           });
         //#endregion /Incident Information (cadDetails)
 
@@ -113,11 +112,10 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setPatientDetailsData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error("Patient Details (patientDetails) error: ", error);
           });
         //#endregion /Patient Details (patientDetails)
 
@@ -127,11 +125,10 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setNokData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error("Next of Kin (nok) error: ", error);
           });
         //#endregion /Next of Kin (nok)
 
@@ -141,11 +138,13 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setClinicalObservationsData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error(
+              "Clinical Observations (clinicalObservations) error: ",
+              error
+            );
           });
         //#endregion /Clinical Observations (clinicalObservations)
 
@@ -155,11 +154,10 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setPatientIVData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error("Patient IV (patientIv) error: ", error);
           });
         //#endregion /Patient IV (patientIv)
 
@@ -169,11 +167,10 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setDrugsMedsData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error("Drugs Meds (drugsMeds) error: ", error);
           });
         //#endregion /Drugs Meds (drugsMeds)
 
@@ -183,11 +180,13 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setCardiacChestPainData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error(
+              "Cardiac Chest Pain (cardiacChestPain) error: ",
+              error
+            );
           });
         //#endregion /Cardiac Chest Pain (cardiacChestPain)
 
@@ -197,11 +196,13 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setStrokeAssessmentData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error(
+              "Stroke Assessment (strokeAssessment) error: ",
+              error
+            );
           });
         //#endregion /Stroke Assessment (strokeAssessment)
 
@@ -211,11 +212,13 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setAirwaysManagementData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error(
+              "Airways Management (airwaysManagement) error: ",
+              error
+            );
           });
         //#endregion /Airways Management (airwaysManagement)
 
@@ -225,11 +228,10 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setCardiacArrestData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error("Cardiac Arrest (cardiacArrest) error: ", error);
           });
         //#endregion /Cardiac Arrest (cardiacArrest)
 
@@ -239,11 +241,13 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setTransportOptionsData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error(
+              "Transport Options (transportOptions) error: ",
+              error
+            );
           });
         //#endregion /Transport Options (transportOptions)
 
@@ -253,11 +257,13 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setSpecialistPathwaysData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error(
+              "Specialist Pathways (specialistPathways) error: ",
+              error
+            );
           });
         //#endregion /Specialist Pathways (specialistPathways)
 
@@ -267,11 +273,10 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setMajorTraumaData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error("Major Trauma (majorTrauma) error: ", error);
           });
         //#endregion /Major Trauma (majorTrauma)
 
@@ -281,11 +286,13 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setManchesterTriageSystemData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error(
+              "Manchester Triage System (manchesterTriageSystem) error: ",
+              error
+            );
           });
         //#endregion /Manchester Triage System (manchesterTriageSystem)
 
@@ -295,11 +302,10 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setPathfindersData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error("Pathfinders (pathfinders) error: ", error);
           });
         //#endregion /Pathfinders (pathfinders)
 
@@ -309,11 +315,13 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setJointDecisionMakingData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error(
+              "Joint Decision Making (jointDecisionMaking) error: ",
+              error
+            );
           });
         //#endregion /Joint Decision Making (jointDecisionMaking)
 
@@ -323,11 +331,10 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setSkeletalTraumaData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error("Skeletal Trauma (skeletalTrauma) error: ", error);
           });
         //#endregion /Skeletal Trauma (skeletalTrauma)
 
@@ -337,11 +344,10 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setBurnsData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error("Burns (burns) error: ", error);
           });
         //#endregion /Burns (burns)
 
@@ -351,11 +357,13 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setCommunicationsConsentNotificationsData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error(
+              "Communications, Consent and Notifications (communicationsConsentNotifications) error: ",
+              error
+            );
           });
         //#endregion /Communications, Consent and Notifications (communicationsConsentNotifications)
 
@@ -365,11 +373,10 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setPatientRefusalData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error("Patient Refusal (patientRefusal) error: ", error);
           });
         //#endregion /Patient Refusal (patientRefusal)
 
@@ -379,11 +386,10 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setMentalCapacityData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error("Mental Capacity (mentalCapacity) error: ", error);
           });
         //#endregion /Mental Capacity (mentalCapacity)
 
@@ -393,11 +399,13 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setPatientDecisionsData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error(
+              "Patient Decisions (patientDecisions) error: ",
+              error
+            );
           });
         //#endregion /Patient Decisions (patientDecisions)
 
@@ -407,11 +415,13 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setPatientCapacityData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error(
+              "Patient Capacity (patientCapacity) error: ",
+              error
+            );
           });
         //#endregion /Patient Capacity (patientCapacity)
 
@@ -421,11 +431,10 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setBestInterestData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error("Best Interest (bestInterest) error: ", error);
           });
         //#endregion /Best Interest (bestInterest)
 
@@ -435,11 +444,10 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setSignAndSyncData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error("Sign and Sync (signAndSync) error: ", error);
           });
         //#endregion /Sign and Sync (signAndSync)
 
@@ -449,11 +457,10 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setNotesData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error("Notes (notes) error: ", error);
           });
         //#endregion /Notes (notes)
 
@@ -463,11 +470,13 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           .then((res) => {
             const data = res.data;
             setDiagnosisOfDeathData(data);
-            setIsLoading(false);
           })
           .catch((error) => {
-            setIsLoading(false);
             console.log(error);
+            throw new Error(
+              "Diagnosis of Death (diagnosisOfDeath) error: ",
+              error
+            );
           });
         //#endregion /Diagnosis of Death (diagnosisOfDeath)
       }
