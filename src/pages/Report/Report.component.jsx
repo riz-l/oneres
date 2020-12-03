@@ -81,10 +81,10 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
   const [bestInterestData, setBestInterestData] = useState([]); // Capacity to Consent
   const [signAndSyncData, setSignAndSyncData] = useState([]); // Sign and Sync
 
-  // State = Notes
+  // State: Notes
   const [notesData, setNotesData] = useState([]); // Notes
 
-  // State = Diagnosis of Death
+  // State: Diagnosis of Death
   const [diagnosisOfDeathData, setDiagnosisOfDeathData] = useState([]); // Diagnosis of Death
 
   // Effect: When selectedPatient changes, fetch relevant Patient reportData

@@ -5,7 +5,7 @@ import React from "react";
 import { Container } from "./PatientReport.elements";
 
 // Import: Renders
-import { PRClinical, PRIncident, PRPatient } from "./renders";
+import { PRClinical, PRIncident, PRIvAccess, PRPatient } from "./renders";
 
 // SubPage: PatientReport
 export default function PatientReport({
@@ -46,7 +46,7 @@ export default function PatientReport({
         cadDetailsData={cadDetailsData}
       />
 
-      {/* #TODO - Patient Details */}
+      {/* Patient Details */}
       <PRPatient
         selectedPatient={selectedPatient}
         isLoading={isLoading}
@@ -54,14 +54,20 @@ export default function PatientReport({
         nokData={nokData}
       />
 
-      {/* #TODO - Clinical Observations */}
+      {/* Clinical Observations */}
       <PRClinical
         selectedPatient={selectedPatient}
         isLoading={isLoading}
         clinicalObservationsData={clinicalObservationsData}
       />
 
-      {/* #TODO - IV Access and Medications */}
+      {/* IV Access and Medications */}
+      <PRIvAccess
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        patientIVData={patientIVData}
+        drugsMedsData={drugsMedsData}
+      />
 
       {/* #TODO - Cardiovascular Assessment */}
 

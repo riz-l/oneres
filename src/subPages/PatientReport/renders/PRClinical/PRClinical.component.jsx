@@ -24,7 +24,7 @@ export default function PRClinical({
   isLoading,
   clinicalObservationsData,
 }) {
-  //#region reportRender = Incident Information
+  //#region reportRender = Clinical Observations
   const reportRender = clinicalObservationsData.map((patient) => (
     <React.Fragment key={patient.id}>
       <Grid>
@@ -281,7 +281,7 @@ export default function PRClinical({
       </Grid>
     </React.Fragment>
   ));
-  //#endregion /reportRender = Incident Information
+  //#endregion /reportRender = Clinical Observations
 
   return (
     <>
