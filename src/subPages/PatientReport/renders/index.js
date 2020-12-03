@@ -1,3 +1,6 @@
+// Export: PRCardiovascular
+export { default as PRCardiovascular } from "./PRCardiovascular/PRCardiovascular.component";
+
 // Export: PRClinical
 export { default as PRClinical } from "./PRClinical/PRClinical.component";
 

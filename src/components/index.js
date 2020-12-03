@@ -7,6 +7,9 @@ export { default as HeadingPrimary } from "./HeadingPrimary/HeadingPrimary.compo
 // Export: HeadingSecondary
 export { default as HeadingSecondary } from "./HeadingSecondary/HeadingSecondary.component";
 
+// Export: HeadingTertiary
+export { default as HeadingTertiary } from "./HeadingTertiary/HeadingTertiary.component";
+
 // Export: FieldData
 export { default as FieldData } from "./FieldData/FieldData.component";
 
