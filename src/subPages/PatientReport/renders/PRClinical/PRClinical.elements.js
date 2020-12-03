@@ -20,11 +20,20 @@ export const Render = styled.div`
 
 // Element: Grid
 export const Grid = styled.div`
+  border-top: 1px solid #dfdfe2;
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(66px, 1fr));
   height: 100%;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
   width: 100%;
+
+  &:first-child {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+  }
 `;
 
 // Element: Column

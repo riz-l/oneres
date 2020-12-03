@@ -9,7 +9,7 @@ export const Container = styled.section`
 
 // Element: Heading
 export const Heading = styled.div`
-  background: #e0e0e0;
+  background: #dfdfe2;
   width: 100%;
 `;
 

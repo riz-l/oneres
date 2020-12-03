@@ -32,7 +32,7 @@ export default function ReportHeader({ isPatientListOpen }) {
       <Navigation>
         <NavLink
           activeStyle={{
-            background: "#e0e0e0",
+            background: "#dfdfe2",
             borderTop: "3px solid #569fd3",
             transition: "background 100ms linear",
           }}
@@ -45,7 +45,7 @@ export default function ReportHeader({ isPatientListOpen }) {
 
         <NavLink
           activeStyle={{
-            background: "#e0e0e0",
+            background: "#dfdfe2",
             borderTop: "3px solid #569fd3",
             transition: "background 100ms linear",
           }}
@@ -57,7 +57,7 @@ export default function ReportHeader({ isPatientListOpen }) {
 
         <NavLink
           activeStyle={{
-            background: "#e0e0e0",
+            background: "#dfdfe2",
             borderTop: "3px solid #569fd3",
             transition: "background 100ms linear",
           }}
@@ -69,7 +69,7 @@ export default function ReportHeader({ isPatientListOpen }) {
 
         <NavLink
           activeStyle={{
-            background: "#e0e0e0",
+            background: "#dfdfe2",
             borderTop: "3px solid #569fd3",
             transition: "background 100ms linear",
           }}
@@ -81,7 +81,7 @@ export default function ReportHeader({ isPatientListOpen }) {
 
         <NavLink
           activeStyle={{
-            background: "#e0e0e0",
+            background: "#dfdfe2",
             borderTop: "3px solid #569fd3",
             transition: "background 100ms linear",
           }}
