@@ -18,3 +18,6 @@ export { default as PRIvAccess } from "./PRIvAccess/PRIvAccess.component";
 
 // Export: PRPatient
 export { default as PRPatient } from "./PRPatient/PRPatient.component";
+
+// Export: PRTransport
+export { default as PRTransport } from "./PRTransport/PRTransport.component";

@@ -158,7 +158,7 @@ export default function PRCardiovascular({
     <React.Fragment key={patient.id}>
       <Grid>
         <Column>
-          <HeadingTertiary text="Condition" />
+          <HeadingTertiary text="Condition" marginBottom="0" />
           <FieldData
             field="Suspected Stroke"
             data={patient.SI_Suspected ? patient.SI_Suspected : "Not recorded"}
@@ -181,7 +181,7 @@ export default function PRCardiovascular({
         </Column>
 
         <Column>
-          <HeadingTertiary text="FAST Assessment" />
+          <HeadingTertiary text="FAST Assessment" marginBottom="0" />
           <FieldData
             field="FAST Assessment Outcome"
             data={

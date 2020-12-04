@@ -13,6 +13,7 @@ import {
   PRIncident,
   PRIvAccess,
   PRPatient,
+  PRTransport,
 } from "./renders";
 
 // SubPage: PatientReport
@@ -99,7 +100,12 @@ export default function PatientReport({
         cardiacArrestData={cardiacArrestData}
       />
 
-      {/* #TODO - Transport Options */}
+      {/* Transport Options */}
+      <PRTransport
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        transportOptionsData={transportOptionsData}
+      />
 
       {/* #TODO - Triage and Pathfinder Support */}
 
