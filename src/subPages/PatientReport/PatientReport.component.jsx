@@ -15,6 +15,7 @@ import {
   PRIncident,
   PRIvAccess,
   PRPatient,
+  PRSign,
   PRTransport,
   PRTrauma,
   PRTriage,
@@ -150,7 +151,12 @@ export default function PatientReport({
         bestInterestData={bestInterestData}
       />
 
-      {/* #TODO - Sign and Sync */}
+      {/* Sign and Sync */}
+      <PRSign
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        signAndSyncData={signAndSyncData}
+      />
     </Container>
   );
 }
