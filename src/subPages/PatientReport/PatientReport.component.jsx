@@ -7,6 +7,7 @@ import { Container } from "./PatientReport.elements";
 // Import: Renders
 import {
   PRAirways,
+  PRCardiac,
   PRCardiovascular,
   PRClinical,
   PRIncident,
@@ -91,7 +92,12 @@ export default function PatientReport({
         airwaysManagementData={airwaysManagementData}
       />
 
-      {/* #TODO - Cardiac Arrest    */}
+      {/* Cardiac Arrest    */}
+      <PRCardiac
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        cardiacArrestData={cardiacArrestData}
+      />
 
       {/* #TODO - Transport Options */}
 

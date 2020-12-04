@@ -20,7 +20,7 @@ export const Container = styled.div`
   width: 500px;
   max-width: 500px;
   min-width: 500px;
-  z-index: 4;
+  z-index: 6;
 
   @media screen and (max-width: 768px) {
     width: 100vw;
