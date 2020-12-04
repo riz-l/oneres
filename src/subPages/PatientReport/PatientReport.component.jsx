@@ -14,6 +14,7 @@ import {
   PRIvAccess,
   PRPatient,
   PRTransport,
+  PRTriage,
 } from "./renders";
 
 // SubPage: PatientReport
@@ -108,6 +109,15 @@ export default function PatientReport({
       />
 
       {/* #TODO - Triage and Pathfinder Support */}
+      <PRTriage
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        specialistPathwaysData={specialistPathwaysData}
+        majorTraumaData={majorTraumaData}
+        manchesterTriageSystemData={manchesterTriageSystemData}
+        pathfindersData={pathfindersData}
+        jointDecisionMakingData={jointDecisionMakingData}
+      />
 
       {/* #TODO - Trauma Management */}
 

@@ -21,3 +21,6 @@ export { default as PRPatient } from "./PRPatient/PRPatient.component";
 
 // Export: PRTransport
 export { default as PRTransport } from "./PRTransport/PRTransport.component";
+
+// Export: PRTriage
+export { default as PRTriage } from "./PRTriage/PRTriage.component";
