@@ -28,6 +28,7 @@ export const Container = styled.div`
   transition: position 100ms linear;
   width: 100%;
   min-width: 100%;
+  z-index: 1;
 `;
 
 // Element: Navigation
