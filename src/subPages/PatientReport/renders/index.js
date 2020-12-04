@@ -10,6 +10,9 @@ export { default as PRCardiovascular } from "./PRCardiovascular/PRCardiovascular
 // Export: PRClinical
 export { default as PRClinical } from "./PRClinical/PRClinical.component";
 
+// Export: PRCommunications
+export { default as PRCommunications } from "./PRCommunications/PRCommunications.component";
+
 // Export: PRIncident
 export { default as PRIncident } from "./PRIncident/PRIncident.component";
 

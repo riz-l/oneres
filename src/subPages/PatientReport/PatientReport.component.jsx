@@ -10,6 +10,7 @@ import {
   PRCardiac,
   PRCardiovascular,
   PRClinical,
+  PRCommunications,
   PRIncident,
   PRIvAccess,
   PRPatient,
@@ -128,7 +129,15 @@ export default function PatientReport({
         burnsData={burnsData}
       />
 
-      {/* #TODO - Communications, Consent, and Notifications */}
+      {/* Communications, Consent, and Notifications */}
+      <PRCommunications
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        communicationsConsentNotificationsData={
+          communicationsConsentNotificationsData
+        }
+        patientRefusalData={patientRefusalData}
+      />
 
       {/* #TODO - Capacity to Consent */}
 
