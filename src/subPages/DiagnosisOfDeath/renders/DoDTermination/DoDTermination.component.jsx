@@ -78,7 +78,7 @@ export default function DoDTermination({
       <Container>
         <Heading>
           <HeadingPrimary
-            icon="fas fa-sticky-note"
+            icon="fas fa-procedures"
             text="C. Termination of Resuscitation, if on Advanced Life Support for 20 Minutes Include"
             padding="0.6rem"
           />

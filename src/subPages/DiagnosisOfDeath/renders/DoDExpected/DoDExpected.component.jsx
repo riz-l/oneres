@@ -59,7 +59,7 @@ export default function DoDExpected({
       <Container>
         <Heading>
           <HeadingPrimary
-            icon="fas fa-sticky-note"
+            icon="fas fa-procedures"
             text="E. Expected Death Due to Illness or Pre-Existing Condition"
             padding="0.6rem"
           />

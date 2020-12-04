@@ -58,7 +58,7 @@ export default function DoDDiagnosis({
       <Container>
         <Heading>
           <HeadingPrimary
-            icon="fas fa-sticky-note"
+            icon="fas fa-procedures"
             text="Diagnosis of Death"
             padding="0.6rem"
           />

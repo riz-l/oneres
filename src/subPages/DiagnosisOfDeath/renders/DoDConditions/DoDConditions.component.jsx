@@ -44,7 +44,7 @@ export default function DoDConditions({
       <Container>
         <Heading>
           <HeadingPrimary
-            icon="fas fa-sticky-note"
+            icon="fas fa-procedures"
             text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing"
             padding="0.6rem"
           />

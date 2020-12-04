@@ -64,7 +64,7 @@ export default function DoDFactors({
       <Container>
         <Heading>
           <HeadingPrimary
-            icon="fas fa-sticky-note"
+            icon="fas fa-procedures"
             text="A. Factors to Confirm Resuscitation Should Not Be Attempted (No Suspicion of Drowning)"
             padding="0.6rem"
           />

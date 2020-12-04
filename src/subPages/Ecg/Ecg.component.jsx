@@ -4,11 +4,15 @@ import React from "react";
 // Import: Elements
 import { Container } from "./Ecg.elements";
 
+// Import: Renders
+import { EEcg } from "./renders";
+
 // SubPage: Ecg
-export default function Ecg() {
+export default function Ecg({ selectedPatient, isLoading }) {
   return (
     <Container>
-      <h2>ECG</h2>
+      {/* ECG */}
+      <EEcg selectedPatient={selectedPatient} isLoading={isLoading} />
     </Container>
   );
 }

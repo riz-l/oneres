@@ -44,7 +44,7 @@ export default function DoDAdvance({
       <Container>
         <Heading>
           <HeadingPrimary
-            icon="fas fa-sticky-note"
+            icon="fas fa-procedures"
             text="B. Advance Decisions to Refuse Treatment DNACPR/and That Fulfils Criteria Specified"
             padding="0.6rem"
           />

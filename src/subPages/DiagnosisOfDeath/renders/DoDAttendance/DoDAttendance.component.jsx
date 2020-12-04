@@ -76,7 +76,7 @@ export default function DoDAttendance({
       <Container>
         <Heading>
           <HeadingPrimary
-            icon="fas fa-sticky-note"
+            icon="fas fa-procedures"
             text="Attendance and Relatives"
             padding="0.6rem"
           />
