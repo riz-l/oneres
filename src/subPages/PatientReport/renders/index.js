@@ -1,6 +1,9 @@
 // Export: PRAirways
 export { default as PRAirways } from "./PRAirways/PRAirways.component";
 
+// Export: PRCapacity
+export { default as PRCapacity } from "./PRCapacity/PRCapacity.component";
+
 // Export: PRCardiac
 export { default as PRCardiac } from "./PRCardiac/PRCardiac.component";
 

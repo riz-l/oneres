@@ -7,6 +7,7 @@ import { Container } from "./PatientReport.elements";
 // Import: Renders
 import {
   PRAirways,
+  PRCapacity,
   PRCardiac,
   PRCardiovascular,
   PRClinical,
@@ -139,7 +140,15 @@ export default function PatientReport({
         patientRefusalData={patientRefusalData}
       />
 
-      {/* #TODO - Capacity to Consent */}
+      {/* Capacity to Consent */}
+      <PRCapacity
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        mentalCapacityData={mentalCapacityData}
+        patientDecisionsData={patientDecisionsData}
+        patientCapacityData={patientCapacityData}
+        bestInterestData={bestInterestData}
+      />
 
       {/* #TODO - Sign and Sync */}
     </Container>
