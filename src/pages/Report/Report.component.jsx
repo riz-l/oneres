@@ -46,9 +46,6 @@ import { ReportHeader, SelectPatientWarning } from "../../components";
 
 // Page: Report
 export default function Report({ selectedPatient, isPatientListOpen }) {
-  // State: isLoading
-  const [isLoading, setIsLoading] = useState(true);
-
   // State: reportData
   const [cadDetailsData, setCadDetailsData] = useState([]); // Incident Information
   const [patientDetailsData, setPatientDetailsData] = useState([]); // Patient Details
@@ -90,8 +87,6 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
   // Effect: When selectedPatient changes, fetch relevant Patient reportData
   useEffect(() => {
     async function getApiData() {
-      setIsLoading(true);
-
       if (selectedPatient !== null) {
         //#region Incident Information (cadDetails)
         cadDetails
@@ -480,7 +475,6 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           });
         //#endregion /Diagnosis of Death (diagnosisOfDeath)
       }
-      setIsLoading(false);
     }
 
     getApiData();
@@ -496,7 +490,6 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           <Route path="/" exact>
             <PatientReport
               selectedPatient={selectedPatient}
-              isLoading={isLoading}
               cadDetailsData={cadDetailsData}
               patientDetailsData={patientDetailsData}
               nokData={nokData}
@@ -528,26 +521,21 @@ export default function Report({ selectedPatient, isPatientListOpen }) {
           </Route>
 
           <Route path="/notes">
-            <Notes
-              selectedPatient={selectedPatient}
-              notesData={notesData}
-              isLoading={isLoading}
-            />
+            <Notes selectedPatient={selectedPatient} notesData={notesData} />
           </Route>
 
           <Route path="/media">
-            <Media selectedPatient={selectedPatient} isLoading={isLoading} />
+            <Media selectedPatient={selectedPatient} />
           </Route>
 
           <Route path="/ecg">
-            <Ecg selectedPatient={selectedPatient} isLoading={isLoading} />
+            <Ecg selectedPatient={selectedPatient} />
           </Route>
 
           <Route path="/diagnosis-of-death">
             <DiagnosisOfDeath
               selectedPatient={selectedPatient}
               diagnosisOfDeathData={diagnosisOfDeathData}
-              isLoading={isLoading}
             />
           </Route>
         </Switch>

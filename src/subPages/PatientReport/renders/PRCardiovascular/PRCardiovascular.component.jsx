@@ -17,14 +17,12 @@ import {
   HeadingPrimary,
   HeadingSecondary,
   HeadingTertiary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: PRCardiovascular
 export default function PRCardiovascular({
   selectedPatient,
-  isLoading,
   cardiacChestPainData,
   strokeAssessmentData,
 }) {
@@ -258,11 +256,6 @@ export default function PRCardiovascular({
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : cardiacChestPainData &&
               cardiacChestPainData.length > 0 &&
               strokeAssessmentData &&

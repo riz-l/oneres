@@ -9,16 +9,11 @@ import {
   FieldData,
   HeadingPrimary,
   HeadingTertiary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: PRAirways
-export default function PRAirways({
-  selectedPatient,
-  isLoading,
-  airwaysManagementData,
-}) {
+export default function PRAirways({ selectedPatient, airwaysManagementData }) {
   //#region reportRender = Airways Management
   const reportRender = airwaysManagementData.map((patient) => (
     <React.Fragment key={patient.id}>
@@ -147,11 +142,6 @@ export default function PRAirways({
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : airwaysManagementData && airwaysManagementData.length > 0 ? (
               reportRender
             ) : (

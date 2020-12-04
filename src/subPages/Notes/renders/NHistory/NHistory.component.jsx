@@ -8,12 +8,11 @@ import { Column, Container, Grid, Heading, Render } from "./NHistory.elements";
 import {
   FieldData,
   HeadingPrimary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: NHistory
-export default function NHistory({ selectedPatient, isLoading, notesData }) {
+export default function NHistory({ selectedPatient, notesData }) {
   //#region reportRender = History of Presenting Complaint
   const reportRender = notesData.map((patient) => (
     <React.Fragment key={patient.id}>
@@ -43,11 +42,6 @@ export default function NHistory({ selectedPatient, isLoading, notesData }) {
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : notesData && notesData.length > 0 ? (
               reportRender
             ) : (

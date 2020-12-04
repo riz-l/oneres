@@ -15,14 +15,12 @@ import {
   FieldData,
   HeadingPrimary,
   HeadingSecondary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: PRIvAccess
 export default function PRIvAccess({
   selectedPatient,
-  isLoading,
   patientIVData,
   drugsMedsData,
 }) {
@@ -363,11 +361,6 @@ export default function PRIvAccess({
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : patientIVData &&
               patientIVData.length > 0 &&
               drugsMedsData &&

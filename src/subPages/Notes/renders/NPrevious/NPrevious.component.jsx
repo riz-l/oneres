@@ -8,12 +8,11 @@ import { Column, Container, Grid, Heading, Render } from "./NPrevious.elements";
 import {
   FieldData,
   HeadingPrimary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: NPrevious
-export default function NPrevious({ selectedPatient, isLoading, notesData }) {
+export default function NPrevious({ selectedPatient, notesData }) {
   //#region reportRender = Previous Medical History Complaint
   const reportRender = notesData.map((patient) => (
     <React.Fragment key={patient.id}>
@@ -43,11 +42,6 @@ export default function NPrevious({ selectedPatient, isLoading, notesData }) {
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : notesData && notesData.length > 0 ? (
               reportRender
             ) : (

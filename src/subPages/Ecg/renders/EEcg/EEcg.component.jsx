@@ -8,12 +8,11 @@ import { Container, Heading, Render } from "./EEcg.elements";
 import {
   FieldData,
   HeadingPrimary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: EEcg
-export default function EEcg({ selectedPatient, isLoading }) {
+export default function EEcg({ selectedPatient }) {
   return (
     <>
       <Container>
@@ -25,11 +24,6 @@ export default function EEcg({ selectedPatient, isLoading }) {
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : (
               <FieldData data="ECG is currently under construction..." />
             )}

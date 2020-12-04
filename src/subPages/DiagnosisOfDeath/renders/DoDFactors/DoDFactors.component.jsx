@@ -15,16 +15,11 @@ import {
   FieldData,
   HeadingPrimary,
   HeadingTertiary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: DoDFactors
-export default function DoDFactors({
-  selectedPatient,
-  isLoading,
-  diagnosisOfDeathData,
-}) {
+export default function DoDFactors({ selectedPatient, diagnosisOfDeathData }) {
   //#region reportRender = Factors to Confirm...
   const reportRender = diagnosisOfDeathData.map((patient) => (
     <React.Fragment key={patient.id}>
@@ -74,11 +69,6 @@ export default function DoDFactors({
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : diagnosisOfDeathData && diagnosisOfDeathData.length > 0 ? (
               reportRender
             ) : (

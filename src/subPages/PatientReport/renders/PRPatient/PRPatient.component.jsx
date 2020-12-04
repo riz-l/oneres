@@ -9,14 +9,12 @@ import {
   FieldData,
   HeadingPrimary,
   HeadingSecondary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: PRPatient
 export default function PRPatient({
   selectedPatient,
-  isLoading,
   patientDetailsData,
   nokData,
 }) {
@@ -199,11 +197,6 @@ export default function PRPatient({
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : patientDetailsData && patientDetailsData.length > 0 ? (
               reportRender
             ) : (

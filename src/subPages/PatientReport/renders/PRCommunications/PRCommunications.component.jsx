@@ -15,14 +15,12 @@ import {
   FieldData,
   HeadingPrimary,
   HeadingTertiary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: PRCommunications
 export default function PRCommunications({
   selectedPatient,
-  isLoading,
   communicationsConsentNotificationsData,
   patientRefusalData,
 }) {
@@ -171,11 +169,6 @@ export default function PRCommunications({
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : communicationsConsentNotificationsData &&
               communicationsConsentNotificationsData.length > 0 ? (
               communicationsConsentNotificationsRender

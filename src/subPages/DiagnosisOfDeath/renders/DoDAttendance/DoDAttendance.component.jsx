@@ -14,14 +14,12 @@ import {
 import {
   FieldData,
   HeadingPrimary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: DoDAttendance
 export default function DoDAttendance({
   selectedPatient,
-  isLoading,
   diagnosisOfDeathData,
 }) {
   //#region reportRender = Attendance and Relatives
@@ -86,11 +84,6 @@ export default function DoDAttendance({
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : diagnosisOfDeathData && diagnosisOfDeathData.length > 0 ? (
               reportRender
             ) : (

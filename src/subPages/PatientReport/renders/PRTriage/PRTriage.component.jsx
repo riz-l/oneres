@@ -17,14 +17,12 @@ import {
   FieldData,
   HeadingPrimary,
   HeadingSecondary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: PRTriage
 export default function PRTriage({
   selectedPatient,
-  isLoading,
   specialistPathwaysData,
   majorTraumaData,
   manchesterTriageSystemData,
@@ -409,11 +407,6 @@ export default function PRTriage({
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : specialistPathwaysData &&
               specialistPathwaysData.length > 0 &&
               majorTraumaData &&

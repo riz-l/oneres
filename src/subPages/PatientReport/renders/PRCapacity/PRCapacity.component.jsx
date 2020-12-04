@@ -16,14 +16,12 @@ import {
   HeadingPrimary,
   HeadingSecondary,
   HeadingTertiary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: PRCapacity
 export default function PRCapacity({
   selectedPatient,
-  isLoading,
   mentalCapacityData,
   patientDecisionsData,
   patientCapacityData,
@@ -205,11 +203,6 @@ export default function PRCapacity({
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : mentalCapacityData &&
               mentalCapacityData.length > 0 &&
               patientDecisionsData &&

@@ -14,14 +14,12 @@ import {
 import {
   FieldData,
   HeadingPrimary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: DoDDiagnosis
 export default function DoDDiagnosis({
   selectedPatient,
-  isLoading,
   diagnosisOfDeathData,
 }) {
   //#region reportRender = Diagnosis of Death
@@ -68,11 +66,6 @@ export default function DoDDiagnosis({
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : diagnosisOfDeathData && diagnosisOfDeathData.length > 0 ? (
               reportRender
             ) : (

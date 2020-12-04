@@ -8,16 +8,11 @@ import { Column, Container, Grid, Heading, Render } from "./PRCardiac.elements";
 import {
   FieldData,
   HeadingPrimary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: PRCardiac
-export default function PRCardiac({
-  selectedPatient,
-  isLoading,
-  cardiacArrestData,
-}) {
+export default function PRCardiac({ selectedPatient, cardiacArrestData }) {
   //#region reportRender = Cardiac Arrest
   const reportRender = cardiacArrestData.map((patient) => (
     <React.Fragment key={patient.id}>
@@ -137,11 +132,6 @@ export default function PRCardiac({
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : cardiacArrestData && cardiacArrestData.length > 0 ? (
               reportRender
             ) : (

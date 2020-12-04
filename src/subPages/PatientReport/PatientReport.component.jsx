@@ -24,7 +24,6 @@ import {
 // SubPage: PatientReport
 export default function PatientReport({
   selectedPatient,
-  isLoading,
   cadDetailsData,
   patientDetailsData,
   nokData,
@@ -56,14 +55,12 @@ export default function PatientReport({
       {/* Incident Information */}
       <PRIncident
         selectedPatient={selectedPatient}
-        isLoading={isLoading}
         cadDetailsData={cadDetailsData}
       />
 
       {/* Patient Details */}
       <PRPatient
         selectedPatient={selectedPatient}
-        isLoading={isLoading}
         patientDetailsData={patientDetailsData}
         nokData={nokData}
       />
@@ -71,14 +68,12 @@ export default function PatientReport({
       {/* Clinical Observations */}
       <PRClinical
         selectedPatient={selectedPatient}
-        isLoading={isLoading}
         clinicalObservationsData={clinicalObservationsData}
       />
 
       {/* IV Access and Medications */}
       <PRIvAccess
         selectedPatient={selectedPatient}
-        isLoading={isLoading}
         patientIVData={patientIVData}
         drugsMedsData={drugsMedsData}
       />
@@ -86,7 +81,6 @@ export default function PatientReport({
       {/* Cardiovascular Assessment */}
       <PRCardiovascular
         selectedPatient={selectedPatient}
-        isLoading={isLoading}
         cardiacChestPainData={cardiacChestPainData}
         strokeAssessmentData={strokeAssessmentData}
       />
@@ -94,28 +88,24 @@ export default function PatientReport({
       {/* Airways Mangement */}
       <PRAirways
         selectedPatient={selectedPatient}
-        isLoading={isLoading}
         airwaysManagementData={airwaysManagementData}
       />
 
       {/* Cardiac Arrest    */}
       <PRCardiac
         selectedPatient={selectedPatient}
-        isLoading={isLoading}
         cardiacArrestData={cardiacArrestData}
       />
 
       {/* Transport Options */}
       <PRTransport
         selectedPatient={selectedPatient}
-        isLoading={isLoading}
         transportOptionsData={transportOptionsData}
       />
 
       {/* Triage and Pathfinder Support */}
       <PRTriage
         selectedPatient={selectedPatient}
-        isLoading={isLoading}
         specialistPathwaysData={specialistPathwaysData}
         majorTraumaData={majorTraumaData}
         manchesterTriageSystemData={manchesterTriageSystemData}
@@ -126,7 +116,6 @@ export default function PatientReport({
       {/* Trauma Management */}
       <PRTrauma
         selectedPatient={selectedPatient}
-        isLoading={isLoading}
         skeletalTraumaData={skeletalTraumaData}
         burnsData={burnsData}
       />
@@ -134,7 +123,6 @@ export default function PatientReport({
       {/* Communications, Consent, and Notifications */}
       <PRCommunications
         selectedPatient={selectedPatient}
-        isLoading={isLoading}
         communicationsConsentNotificationsData={
           communicationsConsentNotificationsData
         }
@@ -144,7 +132,6 @@ export default function PatientReport({
       {/* Capacity to Consent */}
       <PRCapacity
         selectedPatient={selectedPatient}
-        isLoading={isLoading}
         mentalCapacityData={mentalCapacityData}
         patientDecisionsData={patientDecisionsData}
         patientCapacityData={patientCapacityData}
@@ -154,7 +141,6 @@ export default function PatientReport({
       {/* Sign and Sync */}
       <PRSign
         selectedPatient={selectedPatient}
-        isLoading={isLoading}
         signAndSyncData={signAndSyncData}
       />
     </Container>

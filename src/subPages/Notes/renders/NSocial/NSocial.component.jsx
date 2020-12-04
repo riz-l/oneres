@@ -8,12 +8,11 @@ import { Column, Container, Grid, Heading, Render } from "./NSocial.elements";
 import {
   FieldData,
   HeadingPrimary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: NSocial
-export default function NSocial({ selectedPatient, isLoading, notesData }) {
+export default function NSocial({ selectedPatient, notesData }) {
   //#region reportRender = Social History
   const reportRender = notesData.map((patient) => (
     <React.Fragment key={patient.id}>
@@ -47,11 +46,6 @@ export default function NSocial({ selectedPatient, isLoading, notesData }) {
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : notesData && notesData.length > 0 ? (
               reportRender
             ) : (

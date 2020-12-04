@@ -10,16 +10,11 @@ import {
   HeadingPrimary,
   HeadingSecondary,
   HeadingTertiary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: PRSign
-export default function PRSign({
-  selectedPatient,
-  isLoading,
-  signAndSyncData,
-}) {
+export default function PRSign({ selectedPatient, signAndSyncData }) {
   //#region reportRender = Sign and Sync
   const reportRender = signAndSyncData.map((patient) => (
     <React.Fragment key={patient.id}>
@@ -175,11 +170,6 @@ export default function PRSign({
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : signAndSyncData && signAndSyncData.length > 0 ? (
               reportRender
             ) : (

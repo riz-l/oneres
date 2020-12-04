@@ -15,16 +15,11 @@ import {
   FieldData,
   HeadingPrimary,
   HeadingTertiary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: PRTransport
-export default function PRTransport({
-  selectedPatient,
-  isLoading,
-  transportOptionsData,
-}) {
+export default function PRTransport({ selectedPatient, transportOptionsData }) {
   //#region reportRender = Transport Options
   const reportRender = transportOptionsData.map((patient) => (
     <React.Fragment key={patient.id}>
@@ -121,11 +116,6 @@ export default function PRTransport({
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : transportOptionsData && transportOptionsData.length > 0 ? (
               reportRender
             ) : (

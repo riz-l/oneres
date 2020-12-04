@@ -14,16 +14,11 @@ import {
 import {
   FieldData,
   HeadingPrimary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: DoDExpected
-export default function DoDExpected({
-  selectedPatient,
-  isLoading,
-  diagnosisOfDeathData,
-}) {
+export default function DoDExpected({ selectedPatient, diagnosisOfDeathData }) {
   //#region reportRender = Expected Death...
   const reportRender = diagnosisOfDeathData.map((patient) => (
     <React.Fragment key={patient.id}>
@@ -69,11 +64,6 @@ export default function DoDExpected({
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : diagnosisOfDeathData && diagnosisOfDeathData.length > 0 ? (
               reportRender
             ) : (

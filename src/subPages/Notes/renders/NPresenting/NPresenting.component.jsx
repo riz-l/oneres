@@ -14,12 +14,11 @@ import {
 import {
   FieldData,
   HeadingPrimary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: NPresenting
-export default function NPresenting({ selectedPatient, isLoading, notesData }) {
+export default function NPresenting({ selectedPatient, notesData }) {
   //#region reportRender = Presenting Complaint
   const reportRender = notesData.map((patient) => (
     <React.Fragment key={patient.id}>
@@ -49,11 +48,6 @@ export default function NPresenting({ selectedPatient, isLoading, notesData }) {
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : notesData && notesData.length > 0 ? (
               reportRender
             ) : (

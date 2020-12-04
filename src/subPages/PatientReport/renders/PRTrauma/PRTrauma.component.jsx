@@ -18,14 +18,12 @@ import {
   HeadingPrimary,
   HeadingSecondary,
   HeadingTertiary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: PRTrauma
 export default function PRTrauma({
   selectedPatient,
-  isLoading,
   skeletalTraumaData,
   burnsData,
 }) {
@@ -220,11 +218,6 @@ export default function PRTrauma({
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : skeletalTraumaData &&
               skeletalTraumaData.length > 0 &&
               burnsData &&

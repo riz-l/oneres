@@ -14,14 +14,12 @@ import {
 import {
   FieldData,
   HeadingPrimary,
-  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: PRClinical
 export default function PRClinical({
   selectedPatient,
-  isLoading,
   clinicalObservationsData,
 }) {
   //#region reportRender = Clinical Observations
@@ -298,11 +296,6 @@ export default function PRClinical({
           <Render>
             {selectedPatient === null ? (
               <FieldData data="Please select a Patient from the Patient list" />
-            ) : isLoading ? (
-              <>
-                <FieldData data="Loading..." />
-                <Loader background="#3a3a40" />
-              </>
             ) : clinicalObservationsData &&
               clinicalObservationsData.length > 0 ? (
               reportRender

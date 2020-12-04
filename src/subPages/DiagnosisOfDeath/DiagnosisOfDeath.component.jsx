@@ -19,7 +19,6 @@ import {
 export default function DiagnosisOfDeath({
   selectedPatient,
   diagnosisOfDeathData,
-  isLoading,
 }) {
   return (
     <Container>
@@ -27,49 +26,42 @@ export default function DiagnosisOfDeath({
       <DoDDiagnosis
         selectedPatient={selectedPatient}
         diagnosisOfDeathData={diagnosisOfDeathData}
-        isLoading={isLoading}
       />
 
       {/* Factors to Confirm... */}
       <DoDFactors
         selectedPatient={selectedPatient}
         diagnosisOfDeathData={diagnosisOfDeathData}
-        isLoading={isLoading}
       />
 
       {/* Advance Decisions to Refuse... */}
       <DoDAdvance
         selectedPatient={selectedPatient}
         diagnosisOfDeathData={diagnosisOfDeathData}
-        isLoading={isLoading}
       />
 
       {/* Termination of Resuscitation... */}
       <DoDTermination
         selectedPatient={selectedPatient}
         diagnosisOfDeathData={diagnosisOfDeathData}
-        isLoading={isLoading}
       />
 
       {/* Conditions Unequivocally Associated... */}
       <DoDConditions
         selectedPatient={selectedPatient}
         diagnosisOfDeathData={diagnosisOfDeathData}
-        isLoading={isLoading}
       />
 
       {/* Expected Death... */}
       <DoDExpected
         selectedPatient={selectedPatient}
         diagnosisOfDeathData={diagnosisOfDeathData}
-        isLoading={isLoading}
       />
 
       {/* Attendance and Relatives */}
       <DoDAttendance
         selectedPatient={selectedPatient}
         diagnosisOfDeathData={diagnosisOfDeathData}
-        isLoading={isLoading}
       />
     </Container>
   );
