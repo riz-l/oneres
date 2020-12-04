@@ -14,6 +14,7 @@ import {
   PRIvAccess,
   PRPatient,
   PRTransport,
+  PRTrauma,
   PRTriage,
 } from "./renders";
 
@@ -108,7 +109,7 @@ export default function PatientReport({
         transportOptionsData={transportOptionsData}
       />
 
-      {/* #TODO - Triage and Pathfinder Support */}
+      {/* Triage and Pathfinder Support */}
       <PRTriage
         selectedPatient={selectedPatient}
         isLoading={isLoading}
@@ -119,7 +120,13 @@ export default function PatientReport({
         jointDecisionMakingData={jointDecisionMakingData}
       />
 
-      {/* #TODO - Trauma Management */}
+      {/* Trauma Management */}
+      <PRTrauma
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        skeletalTraumaData={skeletalTraumaData}
+        burnsData={burnsData}
+      />
 
       {/* #TODO - Communications, Consent, and Notifications */}
 
