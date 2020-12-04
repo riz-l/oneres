@@ -27,12 +27,16 @@ import {
 } from "./Header.elements";
 
 // Component: Header
-export default function Header({ setIsPatientListOpen, setIsSearchMenuOpen }) {
+export default function Header({
+  setIsPatientListOpen,
+  setIsSearchMenuOpen,
+  setSelectedPatient,
+}) {
   return (
     <Container>
       <Primary>
         <Wrapper>
-          <Logo>
+          <Logo onClick={() => setSelectedPatient(null)}>
             <OneResponse />
           </Logo>
 

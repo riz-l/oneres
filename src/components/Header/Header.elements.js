@@ -35,6 +35,7 @@ export const Wrapper = styled.div`
 // Element: Logo
 export const Logo = styled.div`
   align-items: center;
+  cursor: pointer;
   display: flex;
   height: 100%;
   max-height: 100%;
@@ -52,6 +53,7 @@ export const Logo = styled.div`
   & svg {
     fill: #f1f1f1;
     transition: all 100ms linear;
+    max-height: 100%;
     width: 120px;
     max-width: 120px;
   }
