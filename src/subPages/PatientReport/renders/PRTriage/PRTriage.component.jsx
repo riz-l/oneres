@@ -17,6 +17,7 @@ import {
   FieldData,
   HeadingPrimary,
   HeadingSecondary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
@@ -28,6 +29,7 @@ export default function PRTriage({
   manchesterTriageSystemData,
   pathfindersData,
   jointDecisionMakingData,
+  isLoading,
 }) {
   // State: windowWidth
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -392,8 +394,9 @@ export default function PRTriage({
   ));
   //#endregion /jointDecisionMakingRender = Joint Decision Making
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -405,76 +408,93 @@ export default function PRTriage({
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : specialistPathwaysData &&
-              specialistPathwaysData.length > 0 &&
-              majorTraumaData &&
-              majorTraumaData.length > 0 &&
-              manchesterTriageSystemData &&
-              manchesterTriageSystemData.length > 0 &&
-              pathfindersData &&
-              pathfindersData.length > 0 &&
-              jointDecisionMakingData &&
-              jointDecisionMakingData.length > 0 ? (
-              <>
-                {/* Specialist Pathways */}
-                {specialistPathwaysData && specialistPathwaysData.length > 0 ? (
-                  <>
-                    <HeadingSecondary
-                      text="Specialist Pathways"
-                      marginBottom="0"
-                    />
-                    {specialistPathwaysRender}
-                  </>
-                ) : null}
-
-                {/* Major Trauma */}
-                {majorTraumaData && majorTraumaData.length > 0 ? (
-                  <>
-                    <HeadingSecondary text="Major Trauma" marginBottom="0" />
-                    {majorTraumaRender}
-                  </>
-                ) : null}
-
-                {/* Manchester Triage System */}
-                {manchesterTriageSystemData &&
-                manchesterTriageSystemData.length > 0 ? (
-                  <>
-                    <HeadingSecondary
-                      text="Manchester Triage System"
-                      marginBottom="0"
-                    />
-                    {manchesterTriageSystemRender}
-                  </>
-                ) : null}
-
-                {/* Pathfinders */}
-                {pathfindersData && pathfindersData.length > 0 ? (
-                  <>
-                    <HeadingSecondary text="Pathfinders" marginBottom="0" />
-                    {pathfindersRender}
-                  </>
-                ) : null}
-
-                {/* Joint Decision Making */}
-                {jointDecisionMakingData &&
-                jointDecisionMakingData.length > 0 ? (
-                  <>
-                    <HeadingSecondary
-                      text="Joint Decision Making"
-                      marginBottom="0"
-                    />
-                    {jointDecisionMakingRender}
-                  </>
-                ) : null}
-              </>
-            ) : (
-              <FieldData data="There is no Triage and Pathfinder Support data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-file-medical-alt"
+          text="Triage and Pathfinder Support"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : specialistPathwaysData &&
+            specialistPathwaysData.length > 0 &&
+            majorTraumaData &&
+            majorTraumaData.length > 0 &&
+            manchesterTriageSystemData &&
+            manchesterTriageSystemData.length > 0 &&
+            pathfindersData &&
+            pathfindersData.length > 0 &&
+            jointDecisionMakingData &&
+            jointDecisionMakingData.length > 0 ? (
+            <>
+              {/* Specialist Pathways */}
+              {specialistPathwaysData && specialistPathwaysData.length > 0 ? (
+                <>
+                  <HeadingSecondary
+                    text="Specialist Pathways"
+                    marginBottom="0"
+                  />
+                  {specialistPathwaysRender}
+                </>
+              ) : null}
+
+              {/* Major Trauma */}
+              {majorTraumaData && majorTraumaData.length > 0 ? (
+                <>
+                  <HeadingSecondary text="Major Trauma" marginBottom="0" />
+                  {majorTraumaRender}
+                </>
+              ) : null}
+
+              {/* Manchester Triage System */}
+              {manchesterTriageSystemData &&
+              manchesterTriageSystemData.length > 0 ? (
+                <>
+                  <HeadingSecondary
+                    text="Manchester Triage System"
+                    marginBottom="0"
+                  />
+                  {manchesterTriageSystemRender}
+                </>
+              ) : null}
+
+              {/* Pathfinders */}
+              {pathfindersData && pathfindersData.length > 0 ? (
+                <>
+                  <HeadingSecondary text="Pathfinders" marginBottom="0" />
+                  {pathfindersRender}
+                </>
+              ) : null}
+
+              {/* Joint Decision Making */}
+              {jointDecisionMakingData && jointDecisionMakingData.length > 0 ? (
+                <>
+                  <HeadingSecondary
+                    text="Joint Decision Making"
+                    marginBottom="0"
+                  />
+                  {jointDecisionMakingRender}
+                </>
+              ) : null}
+            </>
+          ) : (
+            <FieldData data="There is no Triage and Pathfinder Support data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

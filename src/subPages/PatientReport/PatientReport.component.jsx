@@ -49,6 +49,7 @@ export default function PatientReport({
   patientCapacityData,
   bestInterestData,
   signAndSyncData,
+  isLoading,
 }) {
   return (
     <Container>
@@ -56,6 +57,7 @@ export default function PatientReport({
       <PRIncident
         selectedPatient={selectedPatient}
         cadDetailsData={cadDetailsData}
+        isLoading={isLoading}
       />
 
       {/* Patient Details */}
@@ -63,12 +65,14 @@ export default function PatientReport({
         selectedPatient={selectedPatient}
         patientDetailsData={patientDetailsData}
         nokData={nokData}
+        isLoading={isLoading}
       />
 
       {/* Clinical Observations */}
       <PRClinical
         selectedPatient={selectedPatient}
         clinicalObservationsData={clinicalObservationsData}
+        isLoading={isLoading}
       />
 
       {/* IV Access and Medications */}
@@ -76,6 +80,7 @@ export default function PatientReport({
         selectedPatient={selectedPatient}
         patientIVData={patientIVData}
         drugsMedsData={drugsMedsData}
+        isLoading={isLoading}
       />
 
       {/* Cardiovascular Assessment */}
@@ -83,24 +88,28 @@ export default function PatientReport({
         selectedPatient={selectedPatient}
         cardiacChestPainData={cardiacChestPainData}
         strokeAssessmentData={strokeAssessmentData}
+        isLoading={isLoading}
       />
 
       {/* Airways Mangement */}
       <PRAirways
         selectedPatient={selectedPatient}
         airwaysManagementData={airwaysManagementData}
+        isLoading={isLoading}
       />
 
       {/* Cardiac Arrest    */}
       <PRCardiac
         selectedPatient={selectedPatient}
         cardiacArrestData={cardiacArrestData}
+        isLoading={isLoading}
       />
 
       {/* Transport Options */}
       <PRTransport
         selectedPatient={selectedPatient}
         transportOptionsData={transportOptionsData}
+        isLoading={isLoading}
       />
 
       {/* Triage and Pathfinder Support */}
@@ -111,6 +120,7 @@ export default function PatientReport({
         manchesterTriageSystemData={manchesterTriageSystemData}
         pathfindersData={pathfindersData}
         jointDecisionMakingData={jointDecisionMakingData}
+        isLoading={isLoading}
       />
 
       {/* Trauma Management */}
@@ -118,6 +128,7 @@ export default function PatientReport({
         selectedPatient={selectedPatient}
         skeletalTraumaData={skeletalTraumaData}
         burnsData={burnsData}
+        isLoading={isLoading}
       />
 
       {/* Communications, Consent, and Notifications */}
@@ -127,6 +138,7 @@ export default function PatientReport({
           communicationsConsentNotificationsData
         }
         patientRefusalData={patientRefusalData}
+        isLoading={isLoading}
       />
 
       {/* Capacity to Consent */}
@@ -136,12 +148,14 @@ export default function PatientReport({
         patientDecisionsData={patientDecisionsData}
         patientCapacityData={patientCapacityData}
         bestInterestData={bestInterestData}
+        isLoading={isLoading}
       />
 
       {/* Sign and Sync */}
       <PRSign
         selectedPatient={selectedPatient}
         signAndSyncData={signAndSyncData}
+        isLoading={isLoading}
       />
     </Container>
   );

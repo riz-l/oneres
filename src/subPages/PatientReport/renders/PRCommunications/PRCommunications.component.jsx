@@ -15,6 +15,7 @@ import {
   FieldData,
   HeadingPrimary,
   HeadingTertiary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
@@ -23,6 +24,7 @@ export default function PRCommunications({
   selectedPatient,
   communicationsConsentNotificationsData,
   patientRefusalData,
+  isLoading,
 }) {
   //#region patientRefusalRender = Patient Refusal
   const patientRefusalRender = patientRefusalData.map((patient) => (
@@ -154,8 +156,9 @@ export default function PRCommunications({
   );
   //#endregion /communicationsConsentNotificationsRender = Communications, Consent and Notifications
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -167,17 +170,35 @@ export default function PRCommunications({
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : communicationsConsentNotificationsData &&
-              communicationsConsentNotificationsData.length > 0 ? (
-              communicationsConsentNotificationsRender
-            ) : (
-              <FieldData data="There is no Communications, Consent and Notifications data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-file-medical-alt"
+          text="Communications, Consent and Notifications"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : communicationsConsentNotificationsData &&
+            communicationsConsentNotificationsData.length > 0 ? (
+            communicationsConsentNotificationsRender
+          ) : (
+            <FieldData data="There is no Communications, Consent and Notifications data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

@@ -9,6 +9,7 @@ import {
   FieldData,
   HeadingPrimary,
   HeadingSecondary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
@@ -17,6 +18,7 @@ export default function PRPatient({
   selectedPatient,
   patientDetailsData,
   nokData,
+  isLoading,
 }) {
   //#region nokRender = Next of Kin
   const nokRender = nokData.map((patient) => (
@@ -182,8 +184,9 @@ export default function PRPatient({
   ));
   //#endregion /reportRender = Patient Details
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -195,16 +198,34 @@ export default function PRPatient({
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : patientDetailsData && patientDetailsData.length > 0 ? (
-              reportRender
-            ) : (
-              <FieldData data="There is no Patient Details data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-file-medical-alt"
+          text="Patient Details"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : patientDetailsData && patientDetailsData.length > 0 ? (
+            reportRender
+          ) : (
+            <FieldData data="There is no Patient Details data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

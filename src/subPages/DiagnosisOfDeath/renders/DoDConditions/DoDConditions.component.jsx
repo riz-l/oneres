@@ -14,6 +14,7 @@ import {
 import {
   FieldData,
   HeadingPrimary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
@@ -21,6 +22,7 @@ import {
 export default function DoDConditions({
   selectedPatient,
   diagnosisOfDeathData,
+  isLoading,
 }) {
   //#region reportRender = Conditions Unequivocally Associated...
   const reportRender = diagnosisOfDeathData.map((patient) => (
@@ -37,8 +39,9 @@ export default function DoDConditions({
   ));
   //#endregion /reportRender = Conditions Unequivocally Associated...
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -50,16 +53,34 @@ export default function DoDConditions({
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : diagnosisOfDeathData && diagnosisOfDeathData.length > 0 ? (
-              reportRender
-            ) : (
-              <FieldData data="There is no Conditions Unequivocally Associated... data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-procedures"
+          text="D. Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : diagnosisOfDeathData && diagnosisOfDeathData.length > 0 ? (
+            reportRender
+          ) : (
+            <FieldData data="There is no Conditions Unequivocally Associated... data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

@@ -14,6 +14,7 @@ import {
 import {
   FieldData,
   HeadingPrimary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
@@ -21,6 +22,7 @@ import {
 export default function PRClinical({
   selectedPatient,
   clinicalObservationsData,
+  isLoading,
 }) {
   //#region reportRender = Clinical Observations
   const reportRender = clinicalObservationsData.map((patient) => (
@@ -281,8 +283,9 @@ export default function PRClinical({
   ));
   //#endregion /reportRender = Clinical Observations
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -294,17 +297,35 @@ export default function PRClinical({
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : clinicalObservationsData &&
-              clinicalObservationsData.length > 0 ? (
-              reportRender
-            ) : (
-              <FieldData data="There is no Clinical Observations data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-file-medical-alt"
+          text="Clinical Observations"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : clinicalObservationsData &&
+            clinicalObservationsData.length > 0 ? (
+            reportRender
+          ) : (
+            <FieldData data="There is no Clinical Observations data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

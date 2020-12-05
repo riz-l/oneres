@@ -14,6 +14,7 @@ import {
 import {
   FieldData,
   HeadingPrimary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
@@ -21,6 +22,7 @@ import {
 export default function DoDTermination({
   selectedPatient,
   diagnosisOfDeathData,
+  isLoading,
 }) {
   //#region reportRender = Termination of Resuscitation...
   const reportRender = diagnosisOfDeathData.map((patient) => (
@@ -71,8 +73,9 @@ export default function DoDTermination({
   ));
   //#endregion /reportRender = Termination of Resuscitation...
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -84,16 +87,34 @@ export default function DoDTermination({
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : diagnosisOfDeathData && diagnosisOfDeathData.length > 0 ? (
-              reportRender
-            ) : (
-              <FieldData data="There is no Termination of Resuscitation... data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-procedures"
+          text="C. Termination of Resuscitation, if on Advanced Life Support for 20 Minutes Include"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : diagnosisOfDeathData && diagnosisOfDeathData.length > 0 ? (
+            reportRender
+          ) : (
+            <FieldData data="There is no Termination of Resuscitation... data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

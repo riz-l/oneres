@@ -15,6 +15,7 @@ import {
   FieldData,
   HeadingPrimary,
   HeadingSecondary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
@@ -23,6 +24,7 @@ export default function PRIvAccess({
   selectedPatient,
   patientIVData,
   drugsMedsData,
+  isLoading,
 }) {
   //#region ivAccessRender = IV Access
   const ivAccessRender = patientIVData.map((patient) => (
@@ -346,8 +348,9 @@ export default function PRIvAccess({
   );
   //#endregion /drugsMedsRefusalRender = Drugs Refusal
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -359,54 +362,69 @@ export default function PRIvAccess({
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : patientIVData &&
-              patientIVData.length > 0 &&
-              drugsMedsData &&
-              drugsMedsData.length > 0 ? (
-              <>
-                {/* IV Access */}
-                {patientIVData && patientIVData.length > 0 ? (
-                  <>
-                    <HeadingSecondary text="IV Access" />
-                    {ivAccessRender}
-                  </>
-                ) : null}
-
-                {/* IV Not Cannulated */}
-                {patientIVData && patientIVData.length > 0 ? (
-                  <>
-                    <HeadingSecondary
-                      text="IV Not Cannulated"
-                      marginTop="2rem"
-                    />
-                    {ivRefusalRender}
-                  </>
-                ) : null}
-
-                {/* Drugs/Meds */}
-                {drugsMedsData && drugsMedsData.length > 0 ? (
-                  <>
-                    <HeadingSecondary text="Drugs / Meds" marginTop="2rem" />
-                    {drugsMedsRender}
-                  </>
-                ) : null}
-
-                {/* Drugs/Meds Refusal */}
-                {drugsMedsData && drugsMedsData.length > 0 ? (
-                  <>
-                    <HeadingSecondary text="Drugs Refusal" marginTop="2rem" />
-                    {drugsMedsRefusalRender}
-                  </>
-                ) : null}
-              </>
-            ) : (
-              <FieldData data="There is no IV Access and Medications data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-file-medical-alt"
+          text="IV Access and Medications"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : patientIVData &&
+            patientIVData.length > 0 &&
+            drugsMedsData &&
+            drugsMedsData.length > 0 ? (
+            <>
+              {/* IV Access */}
+              {patientIVData && patientIVData.length > 0 ? (
+                <>
+                  <HeadingSecondary text="IV Access" />
+                  {ivAccessRender}
+                </>
+              ) : null}
+
+              {/* IV Not Cannulated */}
+              {patientIVData && patientIVData.length > 0 ? (
+                <>
+                  <HeadingSecondary text="IV Not Cannulated" marginTop="2rem" />
+                  {ivRefusalRender}
+                </>
+              ) : null}
+
+              {/* Drugs/Meds */}
+              {drugsMedsData && drugsMedsData.length > 0 ? (
+                <>
+                  <HeadingSecondary text="Drugs / Meds" marginTop="2rem" />
+                  {drugsMedsRender}
+                </>
+              ) : null}
+
+              {/* Drugs/Meds Refusal */}
+              {drugsMedsData && drugsMedsData.length > 0 ? (
+                <>
+                  <HeadingSecondary text="Drugs Refusal" marginTop="2rem" />
+                  {drugsMedsRefusalRender}
+                </>
+              ) : null}
+            </>
+          ) : (
+            <FieldData data="There is no IV Access and Medications data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

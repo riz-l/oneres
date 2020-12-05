@@ -18,35 +18,71 @@ import {
 } from "./renders";
 
 // SubPage: Notes
-export default function Notes({ selectedPatient, notesData }) {
+export default function Notes({ selectedPatient, notesData, isLoading }) {
   return (
     <Container>
       {/* Presenting Complaint */}
-      <NPresenting selectedPatient={selectedPatient} notesData={notesData} />
+      <NPresenting
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        notesData={notesData}
+      />
 
       {/* History of Presenting Complaint */}
-      <NHistory selectedPatient={selectedPatient} notesData={notesData} />
+      <NHistory
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        notesData={notesData}
+      />
 
       {/* Previous Medical History */}
-      <NPrevious selectedPatient={selectedPatient} notesData={notesData} />
+      <NPrevious
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        notesData={notesData}
+      />
 
       {/* Social History */}
-      <NSocial selectedPatient={selectedPatient} notesData={notesData} />
+      <NSocial
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        notesData={notesData}
+      />
 
       {/* Family History */}
-      <NFamily selectedPatient={selectedPatient} notesData={notesData} />
+      <NFamily
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        notesData={notesData}
+      />
 
       {/* On Examination */}
-      <NOn selectedPatient={selectedPatient} notesData={notesData} />
+      <NOn
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        notesData={notesData}
+      />
 
       {/* Impression */}
-      <NImpression selectedPatient={selectedPatient} notesData={notesData} />
+      <NImpression
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        notesData={notesData}
+      />
 
       {/* Plan / Treatment */}
-      <NPlan selectedPatient={selectedPatient} notesData={notesData} />
+      <NPlan
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        notesData={notesData}
+      />
 
       {/* Additional Information */}
-      <NAdditional selectedPatient={selectedPatient} notesData={notesData} />
+      <NAdditional
+        selectedPatient={selectedPatient}
+        isLoading={isLoading}
+        notesData={notesData}
+      />
     </Container>
   );
 }

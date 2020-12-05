@@ -15,11 +15,16 @@ import {
   FieldData,
   HeadingPrimary,
   HeadingTertiary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: DoDFactors
-export default function DoDFactors({ selectedPatient, diagnosisOfDeathData }) {
+export default function DoDFactors({
+  selectedPatient,
+  diagnosisOfDeathData,
+  isLoading,
+}) {
   //#region reportRender = Factors to Confirm...
   const reportRender = diagnosisOfDeathData.map((patient) => (
     <React.Fragment key={patient.id}>
@@ -54,8 +59,9 @@ export default function DoDFactors({ selectedPatient, diagnosisOfDeathData }) {
   ));
   //#endregion /reportRender = Factors to Confirm...
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -67,16 +73,34 @@ export default function DoDFactors({ selectedPatient, diagnosisOfDeathData }) {
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : diagnosisOfDeathData && diagnosisOfDeathData.length > 0 ? (
-              reportRender
-            ) : (
-              <FieldData data="There is no Factors to Confirm... data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-procedures"
+          text="A. Factors to Confirm Resuscitation Should Not Be Attempted (No Suspicion of Drowning)"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : diagnosisOfDeathData && diagnosisOfDeathData.length > 0 ? (
+            reportRender
+          ) : (
+            <FieldData data="There is no Factors to Confirm... data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

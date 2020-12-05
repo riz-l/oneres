@@ -9,11 +9,16 @@ import {
   FieldData,
   HeadingPrimary,
   HeadingTertiary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: PRAirways
-export default function PRAirways({ selectedPatient, airwaysManagementData }) {
+export default function PRAirways({
+  selectedPatient,
+  airwaysManagementData,
+  isLoading,
+}) {
   //#region reportRender = Airways Management
   const reportRender = airwaysManagementData.map((patient) => (
     <React.Fragment key={patient.id}>
@@ -127,8 +132,9 @@ export default function PRAirways({ selectedPatient, airwaysManagementData }) {
   ));
   //#endregion /reportRender = Airways Management
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -140,16 +146,34 @@ export default function PRAirways({ selectedPatient, airwaysManagementData }) {
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : airwaysManagementData && airwaysManagementData.length > 0 ? (
-              reportRender
-            ) : (
-              <FieldData data="There is no Airways Management data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-file-medical-alt"
+          text="Airways Management"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : airwaysManagementData && airwaysManagementData.length > 0 ? (
+            reportRender
+          ) : (
+            <FieldData data="There is no Airways Management data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

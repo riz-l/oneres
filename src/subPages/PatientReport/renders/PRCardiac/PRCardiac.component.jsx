@@ -8,11 +8,16 @@ import { Column, Container, Grid, Heading, Render } from "./PRCardiac.elements";
 import {
   FieldData,
   HeadingPrimary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: PRCardiac
-export default function PRCardiac({ selectedPatient, cardiacArrestData }) {
+export default function PRCardiac({
+  selectedPatient,
+  cardiacArrestData,
+  isLoading,
+}) {
   //#region reportRender = Cardiac Arrest
   const reportRender = cardiacArrestData.map((patient) => (
     <React.Fragment key={patient.id}>
@@ -117,8 +122,9 @@ export default function PRCardiac({ selectedPatient, cardiacArrestData }) {
   ));
   //#endregion /reportRender = Cardiac Arrest
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -130,16 +136,34 @@ export default function PRCardiac({ selectedPatient, cardiacArrestData }) {
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : cardiacArrestData && cardiacArrestData.length > 0 ? (
-              reportRender
-            ) : (
-              <FieldData data="There is no Cardiac Arrest data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-file-medical-alt"
+          text="Cardiac Arrest"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : cardiacArrestData && cardiacArrestData.length > 0 ? (
+            reportRender
+          ) : (
+            <FieldData data="There is no Cardiac Arrest data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

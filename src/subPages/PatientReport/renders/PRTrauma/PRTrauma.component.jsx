@@ -18,6 +18,7 @@ import {
   HeadingPrimary,
   HeadingSecondary,
   HeadingTertiary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
@@ -26,6 +27,7 @@ export default function PRTrauma({
   selectedPatient,
   skeletalTraumaData,
   burnsData,
+  isLoading,
 }) {
   //#region skeletalTraumaRender = Skeletal Trauma
   const skeletalTraumaRender = skeletalTraumaData.map((patient) => (
@@ -203,8 +205,9 @@ export default function PRTrauma({
   ));
   //#endregion /burnsRender = Burns
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -216,39 +219,57 @@ export default function PRTrauma({
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : skeletalTraumaData &&
-              skeletalTraumaData.length > 0 &&
-              burnsData &&
-              burnsData.length > 0 ? (
-              <>
-                {/* Skeletal Trauma */}
-                {skeletalTraumaData && skeletalTraumaData.length > 0 ? (
-                  <>
-                    <HeadingSecondary text="Skeletal Trauma" marginBottom="0" />
-                    {skeletalTraumaRender}
-                  </>
-                ) : null}
-
-                {/* Burns */}
-                {burnsData && burnsData.length > 0 ? (
-                  <>
-                    <HeadingSecondary
-                      text="Burns"
-                      marginBottom="0"
-                      marginTop="2rem"
-                    />
-                    {burnsRender}
-                  </>
-                ) : null}
-              </>
-            ) : (
-              <FieldData data="There is no Trauma Management data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-file-medical-alt"
+          text="Trauma Management"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : skeletalTraumaData &&
+            skeletalTraumaData.length > 0 &&
+            burnsData &&
+            burnsData.length > 0 ? (
+            <>
+              {/* Skeletal Trauma */}
+              {skeletalTraumaData && skeletalTraumaData.length > 0 ? (
+                <>
+                  <HeadingSecondary text="Skeletal Trauma" marginBottom="0" />
+                  {skeletalTraumaRender}
+                </>
+              ) : null}
+
+              {/* Burns */}
+              {burnsData && burnsData.length > 0 ? (
+                <>
+                  <HeadingSecondary
+                    text="Burns"
+                    marginBottom="0"
+                    marginTop="2rem"
+                  />
+                  {burnsRender}
+                </>
+              ) : null}
+            </>
+          ) : (
+            <FieldData data="There is no Trauma Management data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

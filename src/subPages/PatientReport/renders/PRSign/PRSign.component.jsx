@@ -10,11 +10,16 @@ import {
   HeadingPrimary,
   HeadingSecondary,
   HeadingTertiary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: PRSign
-export default function PRSign({ selectedPatient, signAndSyncData }) {
+export default function PRSign({
+  selectedPatient,
+  signAndSyncData,
+  isLoading,
+}) {
   //#region reportRender = Sign and Sync
   const reportRender = signAndSyncData.map((patient) => (
     <React.Fragment key={patient.id}>
@@ -155,8 +160,9 @@ export default function PRSign({ selectedPatient, signAndSyncData }) {
   ));
   //#endregion /reportRender = Sign and Sync
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -168,16 +174,34 @@ export default function PRSign({ selectedPatient, signAndSyncData }) {
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : signAndSyncData && signAndSyncData.length > 0 ? (
-              reportRender
-            ) : (
-              <FieldData data="There is no Sign and Sync data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-file-medical-alt"
+          text="Sign and Sync"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : signAndSyncData && signAndSyncData.length > 0 ? (
+            reportRender
+          ) : (
+            <FieldData data="There is no Sign and Sync data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

@@ -14,6 +14,7 @@ import {
 import {
   FieldData,
   HeadingPrimary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
@@ -21,6 +22,7 @@ import {
 export default function DoDAttendance({
   selectedPatient,
   diagnosisOfDeathData,
+  isLoading,
 }) {
   //#region reportRender = Attendance and Relatives
   const reportRender = diagnosisOfDeathData.map((patient) => (
@@ -69,8 +71,9 @@ export default function DoDAttendance({
   ));
   //#endregion /reportRender = Attendance and Relatives
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -82,16 +85,34 @@ export default function DoDAttendance({
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : diagnosisOfDeathData && diagnosisOfDeathData.length > 0 ? (
-              reportRender
-            ) : (
-              <FieldData data="There is no Attendance and Relatives data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-procedures"
+          text="Attendance and Relatives"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : diagnosisOfDeathData && diagnosisOfDeathData.length > 0 ? (
+            reportRender
+          ) : (
+            <FieldData data="There is no Attendance and Relatives data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

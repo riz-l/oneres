@@ -8,11 +8,11 @@ import { Container } from "./Media.elements";
 import { MMedia } from "./renders";
 
 // SubPage: Media
-export default function Media({ selectedPatient }) {
+export default function Media({ selectedPatient, isLoading }) {
   return (
     <Container>
       {/* Media */}
-      <MMedia selectedPatient={selectedPatient} />
+      <MMedia selectedPatient={selectedPatient} isLoading={isLoading} />
     </Container>
   );
 }

@@ -15,11 +15,16 @@ import {
   FieldData,
   HeadingPrimary,
   HeadingTertiary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
 // Render: PRTransport
-export default function PRTransport({ selectedPatient, transportOptionsData }) {
+export default function PRTransport({
+  selectedPatient,
+  transportOptionsData,
+  isLoading,
+}) {
   //#region reportRender = Transport Options
   const reportRender = transportOptionsData.map((patient) => (
     <React.Fragment key={patient.id}>
@@ -101,8 +106,9 @@ export default function PRTransport({ selectedPatient, transportOptionsData }) {
   ));
   //#endregion /reportRender = Transport Options
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -114,16 +120,34 @@ export default function PRTransport({ selectedPatient, transportOptionsData }) {
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : transportOptionsData && transportOptionsData.length > 0 ? (
-              reportRender
-            ) : (
-              <FieldData data="There is no Transport Options data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-file-medical-alt"
+          text="Transport Options"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : transportOptionsData && transportOptionsData.length > 0 ? (
+            reportRender
+          ) : (
+            <FieldData data="There is no Transport Options data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

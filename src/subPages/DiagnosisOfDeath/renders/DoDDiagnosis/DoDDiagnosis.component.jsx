@@ -14,6 +14,7 @@ import {
 import {
   FieldData,
   HeadingPrimary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
@@ -21,6 +22,7 @@ import {
 export default function DoDDiagnosis({
   selectedPatient,
   diagnosisOfDeathData,
+  isLoading,
 }) {
   //#region reportRender = Diagnosis of Death
   const reportRender = diagnosisOfDeathData.map((patient) => (
@@ -51,8 +53,9 @@ export default function DoDDiagnosis({
   ));
   //#endregion /reportRender = Diagnosis of Death
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -64,16 +67,34 @@ export default function DoDDiagnosis({
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : diagnosisOfDeathData && diagnosisOfDeathData.length > 0 ? (
-              reportRender
-            ) : (
-              <FieldData data="There is no Diagnosis of Death data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-procedures"
+          text="Diagnosis of Death"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : diagnosisOfDeathData && diagnosisOfDeathData.length > 0 ? (
+            reportRender
+          ) : (
+            <FieldData data="There is no Diagnosis of Death data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

@@ -17,6 +17,7 @@ import {
   HeadingPrimary,
   HeadingSecondary,
   HeadingTertiary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
@@ -25,6 +26,7 @@ export default function PRCardiovascular({
   selectedPatient,
   cardiacChestPainData,
   strokeAssessmentData,
+  isLoading,
 }) {
   //#region cardiacAssessmentRender = Clinical Observations
   const cardiacAssessmentRender = cardiacChestPainData.map((patient) => (
@@ -241,8 +243,9 @@ export default function PRCardiovascular({
   ));
   //#endregion /strokeAssessmentRender = Stroke Assessment
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -254,38 +257,53 @@ export default function PRCardiovascular({
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : cardiacChestPainData &&
-              cardiacChestPainData.length > 0 &&
-              strokeAssessmentData &&
-              strokeAssessmentData.length > 0 ? (
-              <>
-                {/* Cardiac Assessment */}
-                {cardiacChestPainData && cardiacChestPainData.length > 0 ? (
-                  <>
-                    <HeadingSecondary text="Cardiac Assessment" />
-                    {cardiacAssessmentRender}
-                  </>
-                ) : null}
-
-                {/* Stroke Assessment */}
-                {strokeAssessmentData && strokeAssessmentData.length > 0 ? (
-                  <>
-                    <HeadingSecondary
-                      text="Stroke Assessment"
-                      marginTop="2rem"
-                    />
-                    {strokeAssessmentRender}
-                  </>
-                ) : null}
-              </>
-            ) : (
-              <FieldData data="There is no Cardiovascular Assessment data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-file-medical-alt"
+          text="Cardiovascular Assessment"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : cardiacChestPainData &&
+            cardiacChestPainData.length > 0 &&
+            strokeAssessmentData &&
+            strokeAssessmentData.length > 0 ? (
+            <>
+              {/* Cardiac Assessment */}
+              {cardiacChestPainData && cardiacChestPainData.length > 0 ? (
+                <>
+                  <HeadingSecondary text="Cardiac Assessment" />
+                  {cardiacAssessmentRender}
+                </>
+              ) : null}
+
+              {/* Stroke Assessment */}
+              {strokeAssessmentData && strokeAssessmentData.length > 0 ? (
+                <>
+                  <HeadingSecondary text="Stroke Assessment" marginTop="2rem" />
+                  {strokeAssessmentRender}
+                </>
+              ) : null}
+            </>
+          ) : (
+            <FieldData data="There is no Cardiovascular Assessment data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

@@ -16,6 +16,7 @@ import {
   HeadingPrimary,
   HeadingSecondary,
   HeadingTertiary,
+  Loader,
   ReportContainer,
 } from "../../../../components";
 
@@ -26,6 +27,7 @@ export default function PRCapacity({
   patientDecisionsData,
   patientCapacityData,
   bestInterestData,
+  isLoading,
 }) {
   //#region mentalCapacityRender = Mental Capacity
   const mentalCapacityRender = mentalCapacityData.map((patient) => (
@@ -188,8 +190,9 @@ export default function PRCapacity({
   ));
   //#endregion /bestInterestRender = Best Interest Option
 
-  return (
-    <>
+  // isLoading ? render Loader
+  if (isLoading && selectedPatient !== null) {
+    return (
       <Container>
         <Heading>
           <HeadingPrimary
@@ -201,72 +204,84 @@ export default function PRCapacity({
 
         <ReportContainer>
           <Render>
-            {selectedPatient === null ? (
-              <FieldData data="Please select a Patient from the Patient list" />
-            ) : mentalCapacityData &&
-              mentalCapacityData.length > 0 &&
-              patientDecisionsData &&
-              patientDecisionsData.length > 0 &&
-              patientCapacityData &&
-              patientCapacityData.length > 0 &&
-              bestInterestData &&
-              bestInterestData.length > 0 ? (
-              <>
-                {/* Mental Capacity */}
-                {mentalCapacityData && mentalCapacityData.length > 0 ? (
-                  <>
-                    <HeadingSecondary text="Mental Capacity" marginBottom="0" />
-                    <HeadingTertiary
-                      text="Does the Mental Capacity Act 2005 apply?"
-                      marginBottom="1rem"
-                    />
-                    {mentalCapacityRender}
-                  </>
-                ) : null}
-
-                {/* Patient Decisions */}
-                {patientDecisionsData && patientDecisionsData.length > 0 ? (
-                  <>
-                    <HeadingSecondary
-                      text="Patient Decisions"
-                      marginBottom="0"
-                    />
-                    {patientDecisionsRender}
-                  </>
-                ) : null}
-
-                {/* Patient Capacity */}
-                {patientCapacityData && patientCapacityData.length > 0 ? (
-                  <>
-                    <HeadingSecondary
-                      text="Patient Capacity"
-                      marginBottom="0"
-                    />
-                    {patientCapacityRender}
-                  </>
-                ) : null}
-
-                {/* Best Interest Option */}
-                {bestInterestData && bestInterestData.length > 0 ? (
-                  <>
-                    <HeadingSecondary
-                      text="Best Interest Option"
-                      marginBottom="0"
-                    />
-                    <HeadingTertiary
-                      text="Best interest decision options (consider all options of care, giving consideration to expressed wishes of Patients and family"
-                      marginBottom="1rem"
-                    />
-                    {bestInterestRender}
-                  </>
-                ) : null}
-              </>
-            ) : (
-              <FieldData data="There is no Capacity to Consent data for this Patient" />
-            )}
+            <Loader background="#3a3a40" />
           </Render>
         </ReportContainer>
       </Container>
-    </>
+    );
+  }
+
+  return (
+    <Container>
+      <Heading>
+        <HeadingPrimary
+          icon="fas fa-file-medical-alt"
+          text="Capacity to Consent"
+          padding="0.6rem"
+        />
+      </Heading>
+
+      <ReportContainer>
+        <Render>
+          {selectedPatient === null ? (
+            <FieldData data="Please select a Patient from the Patient list" />
+          ) : mentalCapacityData &&
+            mentalCapacityData.length > 0 &&
+            patientDecisionsData &&
+            patientDecisionsData.length > 0 &&
+            patientCapacityData &&
+            patientCapacityData.length > 0 &&
+            bestInterestData &&
+            bestInterestData.length > 0 ? (
+            <>
+              {/* Mental Capacity */}
+              {mentalCapacityData && mentalCapacityData.length > 0 ? (
+                <>
+                  <HeadingSecondary text="Mental Capacity" marginBottom="0" />
+                  <HeadingTertiary
+                    text="Does the Mental Capacity Act 2005 apply?"
+                    marginBottom="1rem"
+                  />
+                  {mentalCapacityRender}
+                </>
+              ) : null}
+
+              {/* Patient Decisions */}
+              {patientDecisionsData && patientDecisionsData.length > 0 ? (
+                <>
+                  <HeadingSecondary text="Patient Decisions" marginBottom="0" />
+                  {patientDecisionsRender}
+                </>
+              ) : null}
+
+              {/* Patient Capacity */}
+              {patientCapacityData && patientCapacityData.length > 0 ? (
+                <>
+                  <HeadingSecondary text="Patient Capacity" marginBottom="0" />
+                  {patientCapacityRender}
+                </>
+              ) : null}
+
+              {/* Best Interest Option */}
+              {bestInterestData && bestInterestData.length > 0 ? (
+                <>
+                  <HeadingSecondary
+                    text="Best Interest Option"
+                    marginBottom="0"
+                  />
+                  <HeadingTertiary
+                    text="Best interest decision options (consider all options of care, giving consideration to expressed wishes of Patients and family"
+                    marginBottom="1rem"
+                  />
+                  {bestInterestRender}
+                </>
+              ) : null}
+            </>
+          ) : (
+            <FieldData data="There is no Capacity to Consent data for this Patient" />
+          )}
+        </Render>
+      </ReportContainer>
+    </Container>
   );
 }

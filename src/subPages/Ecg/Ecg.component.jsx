@@ -8,11 +8,11 @@ import { Container } from "./Ecg.elements";
 import { EEcg } from "./renders";
 
 // SubPage: Ecg
-export default function Ecg({ selectedPatient }) {
+export default function Ecg({ selectedPatient, isLoading }) {
   return (
     <Container>
       {/* ECG */}
-      <EEcg selectedPatient={selectedPatient} />
+      <EEcg selectedPatient={selectedPatient} isLoading={isLoading} />
     </Container>
   );
 }
