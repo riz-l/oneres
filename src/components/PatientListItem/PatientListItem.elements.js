@@ -131,7 +131,6 @@ export const StatusItem = styled.div`
   font-size: 12px;
 
   & span {
-    font-weight: lighter;
     opacity: 0.8;
   }
 
