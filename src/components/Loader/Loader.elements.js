@@ -1,6 +1,13 @@
 // Import: Dependencies
 import styled, { keyframes } from "styled-components/macro";
 
+// Element: Container
+export const Container = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+`;
+
 // Element: spinnerAnimation
 export const spinnerAnimation = keyframes`
     0% { transform: scale(1); }
